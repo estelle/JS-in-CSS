@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JS-in-CSS | carousel</title>
+<!--
+Made by: Estelle Weyl
+Copyright: 2025,  CC-SA-NC-BY - Creative Commons Attribution-NonCommercial-ShareAlike
+-->
+<link rel="stylesheet" href="css/index_carousel.css"/>
+<style>
+footer {
+  display: if(
+    style(--showHashTag: true): block;
+    else: none;
+  );
+}
+</style>
+</head>
+
+<body>
+<div id="presentation">
+<div id="slides">
+<article id="title">
+  <header>
+    <h1>JS-in-CSS</h1>
+  </header>
+  <figure>
+    <object data="pages/intro.html"></object>
+  </figure>
+</article>
+
+<article id="awesome">
+  <header>
+    <h1>CSS is Awesome</h1>
+  </header>
+  <figure>
+    <object data="pages/awesome.html"></object>
+  </figure>
+</article>
+
+<article id="style">
+  <header>
+    <h1>&lt;style&gt;</h1>
+  </header>
+  <figure>
+    <object data="pages/style.html"></object>
+  </figure>
+ </article>
+
+<article id="deck">
+  <header>
+    <h1>&lt;style&gt;</h1>
+  </header>
+  <figure>
+    <object data="sass/_carousel.scss"></object>
+  </figure>
+</article>
+
+<article id="end">
+  <header>
+    <h1>The End!</h1>
+  </header>
+  <figure>
+    <object data="pages/intro.html"></object>
+  </figure>
+</article>
+
+<article id="resources">
+  <header>
+    <h1>Resources</h1>
+  </header>
+  <section class="content">
+    <figure>
+      <object data="pages/resources.html"></object>
+    </figure>
+  </section>
+</article>
+
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JS-in-CSS | :target</title>
+<!--
+Made by: Estelle Weyl
+Copyright: 2025,  CC-SA-NC-BY - Creative Commons Attribution-NonCommercial-ShareAlike
+-->
+<link rel="stylesheet" href="css/index_target.css"/>
+<style>
+footer {
+  display: if(
+    style(--showHashTag: true): block;
+    else: none;
+  );
+}
+</style>
+<style>
+
+</style>
+</head>
+
+<body>
+<div id="presentation">
+<div id="slides">
+
+
+<article id="title">
+  <header>
+    <h1>JS-in-CSS</h1>
+  </header>
+  <figure>
+    <object data="pages/intro.html"></object>
+  </figure>
+</article>
+<a href="#title" checked><span>Intro</span></a>
+
+
+<article id="awesome">
+<header><h1>Remember me?</h1></header>
+  <figure>
+    <object data="pages/awesome.html"></object>
+  </figure>
+ </article>
+<a href="#awesome"><span>CSS is awesome</span></a>
+
+<article id="style">
+  <header>
+    <h1>&lt;style&gt;</h1>
+  </header>
+  <figure>
+    <object data="pages/style.html"></object>
+  </figure>
+  </article>
+<a href="#style"><span>Editing CSS</span></a>
+
+
+
+<article id="vars">
+<header>
+  <h1>Site variables</h1>
+</header>
+<figure>
+  <object data="sass/_vars.scss"></object>
+</figure>
+</article>
+<a href="#vars"><span>Site variables</span></a>
+
+
+<article id="liveVariables">
+<header><h1>CSS custom properties</h1></header>
+<figure>
+<style contenteditable class="editme">:root {
+  --textColor: #090057;
+  --bgColor: #fffffd;
+  --hiliteColor: #9900a1;
+  --tertiaryColor: #cd72aa;
+  --fourthColor: #e69b55;
+  --secondaryColor: #ffc600;
+  --globalShadow: rgb(0 0 0 / 0.3)  0 0 2px 1px;
+  --showHashTag: false;
+}</style>
+</figure>
+</article>
+<a href="#liveVariables"><span>CSS custom properties</span></a>
+
+
+<article id="showHashTag">
+<header><h1>if() statements</h1></header>
+<style contenteditable class="editme">footer {
+  display: if(
+    style(--showHashTag: true): block;
+    else: none;
+  );
+}
+:root {
+  --showHashTag: false;
+}</style>
+</article>
+<a href="#showHashTag"><span>CSS if() function</span></a>
+
+<article id="deck" >
+  <header>
+    <h1>&lt;style&gt;</h1>
+  </header>
+  <figure>
+    <object data="pages/deck_target.html"></object>
+  </figure>
+</article>
+<a href="#deck"><span>Understanding this slide deck</span></a>
+
+
+
+<article id="title2">
+  <header>
+    <h1>The end!</h1>
+  </header>
+  <figure>
+    <object data="pages/intro.html"></object>
+  </figure>
+</article>
+<a href="#title2" checked><span>Outro</span></a>
+
+
+
+
+<article id="resources" style="background-position: right 1vw top 1vh">
+  <header>
+    <h1>Resources</h1>
+  </header>
+  <section class="content">
+    <figure>
+      <object data="pages/resources.html"></object>
+    </figure>
+  </section>
+</article>
+<a href="#resources"><span>Resources</span></a>
+
+
+<footer>#JSinCSS</footer>
+</div>
+</div>
+</body>
+</html>

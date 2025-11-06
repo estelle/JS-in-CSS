@@ -1,0 +1,11 @@
+/* CSS Counter */
+body {counter-reset: pagecount;}
+article{counter-increment: pagecount;}
+article:after {
+  content: counter(pagecount);
+  color: var(--hiliteColor);
+  background: var(--bgColor);
+  position: absolute;
+  bottom: calc(2rem + 15px);
+  right: 1rem; padding: 5px;
+}

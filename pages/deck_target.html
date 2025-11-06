@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>CSS-only slide deck</title>
+  <link rel="stylesheet" href="../css/files.css"><title>CSS-only slide deck</title>
+<style>
+
+    dt, dd {
+      color: var(--secondaryColor);
+      margin: 0;
+      white-space: pre;
+      font-family: monospace;
+    }
+    dd {
+      color: var(--textColor);
+    }
+    span {
+      color: var(--tertiaryColor);
+    }
+  [contenteditable] {
+    outline-color: var(--secondaryColor);
+    margin: 0;
+  }
+
+  </style>
+</head>
+<body>
+<dl>
+<dt>/* all / future */</dt>
+<dd><span>article {</span>
+  transform: translate(100%, 0) scale(0.1) rotate(180deg);
+  position: absolute;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  top: 0; left: 0;
+  transition: all 0.25s ease-in;
+  background-color: #333;
+<span>}</span></dd>
+<dt>/* current */</dt>
+<dd><span>article:target {</span>
+  transform: translate(0, 0) scale(1) rotate(0deg);
+<span>}</span></dd>
+<dt>/* next */</dt>
+<dd><span>article:target + a + .slide {</span>
+  transform: translate(45%, -50%) scale(0.2) rotate(-90deg);
+<span>}</span></dd>
+<dt>/* Make all links look like back buttons */</dt>
+<dd><span>article ~ a:after {</span>
+  content: '<< back';
+  position:absolute; bottom: 20px; left: 20px;
+  width: 5em;
+  background-color: #333;
+  transform: translatez(0);
+  cursor: pointer;
+<span>}</span></dd>
+<dt>/* Hide link for current and future slide */</dt>
+<dd><span>article:target ~ a:after,
+#slides > a span,
+article:target ~ a {</span>
+  display: none;
+<span>}</span></dd>
+<dt>/* Just the link for the slide after the current one */</dt>
+<dd><span>article:target + a + article + a {</span>
+  display: block;
+  visibility: visible;
+  position:absolute; bottom: 20px; right: 20px;
+  cursor: pointer;
+  color: #ccc;
+  background-color: #333;
+  border: none;
+  font-size: 1rem;
+  width: 5em;
+<span>}</span></dd>
+<dt>/* And the generated content on that link */</dt>
+<dd><span>article:target + a + article+ a:after {</span>
+  content: 'next >>'; 
+  display: block;
+<span>}</span>
+
+
+
+
+</dd>
+</dl>
+</body>
+</html>
+
+
