@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>CSS-only slide deck</title>
+  <link rel="stylesheet" href="../css/files.css">
+  <title>CSS-only slide deck</title>
+  <style>
+
+    dt, dd {
+      color: var(--secondaryColor);
+      margin: 0;
+      white-space: pre;
+      font-family: monospace;
+    }
+    dd {
+      margin: -1lh 0 1lh;
+      color: var(--textColor);
+    }
+    span {
+      color: var(--tertiaryColor);
+    }
+  [contenteditable] {
+    outline-color: var(--secondaryColor);
+    margin: 0;
+  }
+  strong {
+    color: oklch(from currentcolor calc(l - 0.25) c h);
+    font-weight: bold;
+  }
+  </style>
+</head>
+<body>
+<dl contenteditable><dt>/* Slide deck :: scroll snap */</dt>
+<dd><span>#slides {</span>
+  width: 100vw;
+  height: 80vh;
+  padding: 20px;
+  display: flex;
+  gap: 4vw;
+  overflow-x: scroll;
+  <strong>scroll-snap-type: x mandatory;
+  scroll-marker-group: after;</strong>
+<span>}</span></dd><dt>/* left and right ::scroll-button */</dt>
+<dd><span>#slides<strong>::scroll-button(*)</strong> {</span>
+  border: 0;
+  font-size: 2rem;
+  background: none;
+  color: var(--hiliteColor);
+  opacity: 0.7;
+  cursor: pointer;
+  position: relative;
+  top: -1em;
+<span>}</span></dd><dt>/* :hover/:focus */</dt>
+<dd><span>#slides::scroll-button(*):hover,
+#slides::scroll-button(*):focus {</span>
+  opacity: 1;
+<span>}</span></dd><dt>/* :active */</dt>
+<dd><span>#slides::scroll-button(*):active {</span>
+  translate: 1px 1px;
+<span>}</span></dd><dt>/* No more slides */</dt>
+<dd><span>#slides::scroll-button(*):disabled {</span>
+  opacity: 0.2;
+  cursor: unset;
+<span>}</span></dd><dt>/* Individual buttons */</dt>
+<dd><span>#slides::scroll-button(<strong>left</strong>) {</span>
+  content: "◄";
+  float: left;
+<span>}</span></dd><dt>/* Individual buttons */</dt>
+<dd><span>#slides::scroll-button(<strong>right</strong>) {</span>
+  content: "►";
+  float: right;
+<span>}</span></dd><dt>/* Center slide on snap */</dt>
+<dd><span>article {</span>
+  flex: 0 0 100%;
+  <strong>scroll-snap-align</strong>: center;
+  position: relative;
+<span>}</span></dd><dt>/* page number */</dt>
+<dd><span>article:after {</span>
+  position: absolute;
+  bottom: calc(4rem + 15px);
+  right: auto; left: 90%; padding: 5px;
+<span>}</span></dd><dt>/* the dots (::scroll-marker) */</dt>
+<dd><span>article<strong>::scroll-marker</strong> {</span>
+  content: "";
+  border: 1px solid var(--hiliteColor);
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+<span>}</span></dd><dt>/* current page */</dt>
+<dd><span>article::scroll-marker:focus,
+article::scroll-marker:active {</span>
+  background-color: var(--hiliteColor);
+<span>}</span></dd><dt>/* Marker group */</dt>
+<dd><span><strong>::scroll-marker-group</strong> {</span>
+  display: flex;
+  gap: 0.4em;
+  place-content: center;
+<span>}</span></dd>
+</dl>
+
+    </html>

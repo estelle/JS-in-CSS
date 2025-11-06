@@ -71,6 +71,7 @@ footer {
 <article id="liveVariables">
 <header><h1>CSS custom properties</h1></header>
 <figure>
+<small>Reload page when done.</small>
 <style contenteditable class="editme">:root {
   --textColor: #090057;
   --bgColor: #fffffd;
@@ -110,6 +111,80 @@ footer {
 </article>
 <a href="#deck"><span>Understanding this slide deck</span></a>
 
+<article id="theCode" >
+  <header>
+    <h1>&lt;style&gt;</h1>
+  </header>
+  <figure style="overflow: scroll;">
+<style class="editme" contenteditable="">
+#slides,
+article {
+  position: absolute; top: 0; left: 0;
+  width:100vw; height: 100vh;
+  transition: none;
+}
+/* all but current slide */
+article:not(:target) {
+  transform: translate(100%, 0) scale(0.1) rotate(180deg);
+}
+
+/* page load or current target */
+:not(:has(article:target)) article:first-of-type,
+body article:target {
+  transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+
+/* next */
+:not(:has(article:target)) article:first-of-type + a + .article,
+body article:target + a + article{
+     transform: translate(45%, -50%) scale(0.2) rotate(-90deg);
+  }
+
+/* link after all articles */
+article ~ a::before {
+  content: '<< back';
+  position:absolute; bottom: 20px; left: 20px;
+  width: 5em;
+  transform: translatez(0);
+  z-index: 5000;
+  cursor: pointer;
+
+}
+/* except the current one */
+article:target ~ a::before {
+  display: none;
+}
+
+/* hide text and all links */
+#slides > a span,
+article:target ~ a {display: none;}
+
+/* make just one next visible */
+article:first-of-type + a + article + a,
+body article:target + a + article + a {
+  display: block;
+  position:absolute; bottom: 20px; right: 20px;
+  cursor: pointer;
+  &:before {
+    display: none;
+  }
+  &:after {
+    content: 'next »';
+    padding: 0 8px 4px;
+    color: var(--bgColor);
+    border-radius: 4px;
+    background-color: var(--hiliteColor);
+    box-shadow: var(--globalShadow);
+  }
+}
+
+
+
+
+</style>
+  </figure>
+</article>
+<a href="#theCode"><span>Slide deck CSS functionality</span></a>
 
 
 <article id="title2">
@@ -130,9 +205,17 @@ footer {
     <h1>Resources</h1>
   </header>
   <section class="content">
-    <figure>
-      <object data="pages/resources.html"></object>
-    </figure>
+    <div>
+      <ul>
+        <li>This talk: <a href="https://estelle.github.io/js-in-css/">estelle.github.io/JS-in-CSS</a></li>
+        <li>OpenWebDocs: <a href="https://openwebdocs.org/">OpenWebDocs.org</a></li>
+        <li>Specificity: <a href="https://specifishity.com">SpeciFISHity.com</a></li>
+        <li>Custom properties: <a href="https:developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties">Using CSS custom properties (variables)</a></li>
+        <li>Selectors: <a href="https://estelle.github.io/selectors/">estelle.github.io/selectors/</a>, specifically <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:has"><code>:has()</code></a></li>
+        <li>CSS functions: <a href="https:developer.mozilla.org/en-US/docs/Web/CSS/CSS_values_and_units/CSS_value_functions">CSS value functions</a> and the <a href="https:developer.mozilla.org/en-US/docs/Web/CSS/if"><code>if()</code></a> function</li>
+        <li>Custom properties: <a href="https:developer.mozilla.org/en-US/docs//en-US/docs/Web/HTML/Reference/Global_attributes/contenteditable">HTML <code>contenteditable</code> attribute</a></li>
+      </ul>
+    </div>
   </section>
 </article>
 <a href="#resources"><span>Resources</span></a>

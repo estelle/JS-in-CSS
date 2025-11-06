@@ -18,6 +18,15 @@ head {
   display: flex;
 }
 
+body {
+  margin: 20px;
+  line-height: 1.6;
+}
+
+p {
+  padding-right: 40px;
+}
+
 [contenteditable] {
   user-modify: plaintext-only;
   -webkit-user-modify: read-write-plaintext-only;
@@ -29,15 +38,6 @@ head {
   display: block;
   margin: 20px;
   font-family: monospace;
-}
-
-body {
-  margin: 20px;
-  line-height: 1.6;
-}
-
-p {
-  padding-right: 40px;
 }
 
 body {

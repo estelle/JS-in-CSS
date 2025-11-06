@@ -67,7 +67,117 @@ footer {
 <label for="chkbx_deck2"><span>Slide deck's actual CSS</span></label>
 <article>
 <header><h1>The actual &lt;style&gt;</h1></header>
-  <figure><object data="sass/_slides_nojs.scss"></object></figure>
+  <figure>
+<style class="editme" contenteditable="">/* all / previous slide */
+
+article {
+  transform: translate(100%, 0) scale(0.1) rotate(180deg);
+}
+
+
+/* current slide */
+
+input:checked + label + article {
+  //transform: translate(0, 0) scale(1) rotate(0deg);
+  transform: none;
+}
+
+
+/* next slide */
+
+input:checked + label + article + 
+  input:not(:checked) + label + .slide {
+    transform: translate(45%, -50%) scale(0.2) rotate(-90deg);
+}
+
+
+/* create the back button out of a label */
+
+input:checked + label:after {
+  content: '« back';
+  position:absolute; 
+  bottom: 20px; left: 20px;
+  width: 5em;
+  transform: translatez(0);
+  z-index: 5000;
+  cursor: pointer;
+}
+
+
+/* create the next button out of a checkbox */
+
+input:checked + 
+  label + article + input:not(:checked) {
+  visibility: visible;
+  position:absolute; 
+  bottom: 20px; right: 20px;
+  cursor: pointer;
+  appearance: none;
+  border: none;
+  font-size: 1rem;
+  width: 5em;
+
+  &:after {
+    content: 'next »';
+    padding: 0 8px 4px;
+    color: var(--bgColor);
+    border-radius: 4px;
+    background-color: var(--hiliteColor);
+    line-height: 2;
+    box-shadow: var(--globalShadow);
+  }
+}
+
+
+#slides:has(:checked) > h1 {
+  display: none;
+}
+
+header {
+  margin-bottom: 0;
+}
+section > pre:first-child {
+  margin-top: 0;
+}
+  h1 {
+    font-size: 2rem;
+    text-align: center; 
+    margin-bottom: 1em;
+  }
+  article a {
+    font-size: 1rem; 
+    color: #999; 
+    text-decoration: underline;
+  }
+  .prev, 
+  .next {
+    float: left; height: 50vh; width: 4vw;
+  }
+  .next {
+    float: right;
+  }
+
+  /* show all the inputs in a group */
+  input + label::after {
+    content: "";
+    display: block;
+  }
+  article {
+    position: absolute;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    top: 0; left: 0;
+    transition: all 0.25s ease-in;
+    background-color: var(--bgColor);
+  }
+
+
+
+
+
+  </style>
+  </figure>
 </article>
 
 
@@ -88,7 +198,14 @@ footer {
 <article>
   <header><h1>Resources</h1></header>
   <figure>
-    <object data="pages/resources.html"></object>
+        <div>
+      <ul>
+        <li>This talk: <a href="https://estelle.github.io/js-in-css/">estelle.github.io/JS-in-CSS</a></li>
+        <li>OpenWebDocs: <a href="https://openwebdocs.org/">OpenWebDocs.org</a></li>
+        <li>Selectors: <a href="https://estelle.github.io/selectors/">estelle.github.io/selectors/</a></li>
+        <li>Specificity: <a href="https://specifishity.com">SpeciFISHity.com</a></li>
+      </ul>
+    </div>
   </figure>
 </article>
 

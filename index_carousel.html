@@ -30,30 +30,158 @@ footer {
   </figure>
 </article>
 
+
+<article id="style">
+  <header>
+    <h1>Slide HTML</h1>
+  </header>
+  <figure>
+<pre><code>
+ &lt;article id="optionalID">
+  &lt;header>
+    &lt;h1>Slide Title&lt;/h1>
+  &lt;/header>
+  &lt;figure>
+    &lt;object data="pages/somepage.html">&lt;/object>
+  &lt;/figure>
+ &lt;/article>
+</code></pre>
+  </figure>
+ </article>
+
+<article id="deck_css">
+  <header>
+    <h1>&lt;style&gt;</h1>
+  </header>
+  <figure>
+    <object data="pages/deck_carousel.html"></object>
+  </figure>
+</article>
+
+
 <article id="awesome">
   <header>
     <h1>CSS is Awesome</h1>
   </header>
   <figure>
-    <object data="pages/awesome.html"></object>
+<small><strong>Reload</strong> page when done.</small>
+<style contenteditable class="editme">
+figure {
+  color: var(--hiliteColor);
+}
+small, [contenteditable] {
+  //color: oklch(from currentcolor calc(l + 0.25) c h);
+}</style>
   </figure>
 </article>
 
-<article id="style">
-  <header>
-    <h1>&lt;style&gt;</h1>
-  </header>
-  <figure>
-    <object data="pages/style.html"></object>
-  </figure>
- </article>
-
 <article id="deck">
   <header>
-    <h1>&lt;style&gt;</h1>
+    <h1>Carousel deck &lt;style&gt;</h1>
   </header>
   <figure>
-    <object data="sass/_carousel.scss"></object>
+<small>Reload page when done.</small>
+<style contenteditable class="editme">/* deck is a flex row with scroll-snap container */
+/* placement of scroll-marker-group */
+
+#slides {
+  width: 100vw;
+  height: 80vh;
+  padding: 20px;
+  display: flex;
+  gap: 4vw;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-marker-group: after;
+}
+/* slides snap to center */
+article {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  position: relative;
+}
+/* move the page number */
+article:after {
+  position: absolute;
+  bottom: calc(4rem + 15px);
+  right: auto; 
+  left: 90%; 
+  padding: 5px;
+}
+</style>
+  </figure>
+</article>
+
+<article id="deck2">
+  <header>
+    <h1>Left and right buttons</h1>
+  </header>
+  <figure>
+<small>Reload page when done.</small>
+<style contenteditable class="editme">/* left and right buttons */
+#slides::scroll-button(*) {
+  border: 0;
+  font-size: 2rem;
+  background: none;
+  color: var(--hiliteColor);
+  opacity: 0.7;
+  cursor: pointer;
+  position: relative;
+  top: -1em;
+}
+#slides::scroll-button(left) {
+  content: '◄';
+  //color: red;
+  float: left;
+}
+#slides::scroll-button(right) {
+  content: '►';
+  float: right;
+}
+#slides::scroll-button(*):hover,
+#slides::scroll-button(*):focus {
+  opacity: 1;
+}
+#slides::scroll-button(*):active {
+  translate: 1px 1px;
+}
+#slides::scroll-button(*):disabled {
+  opacity: 0.2;
+  cursor: unset;
+}
+
+
+
+</style>
+  </figure>
+</article>
+
+<article id="deck3">
+  <header>
+    <h1>Group of markers</h1>
+  </header>
+  <figure>
+<small>Reload page when done.</small>
+<style contenteditable class="editme">/* marker for each slide */
+article::scroll-marker {
+  content: "";
+  border: 1px solid var(--hiliteColor);
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+}
+article::scroll-marker:focus,
+article::scroll-marker:active {
+  background-color: var(--hiliteColor);
+}
+/* marker group */
+::scroll-marker-group {
+  display: flex;
+  gap: 0.4em;
+  place-content: center;
+}
+
+</style>
   </figure>
 </article>
 

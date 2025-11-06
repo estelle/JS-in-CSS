@@ -1,0 +1,11 @@
+[contenteditable] {
+  user-modify: plaintext-only;
+  -webkit-user-modify: read-write-plaintext-only;
+}
+.editme {
+  color: var(--textColor);
+  white-space: pre;
+  display: block;
+  margin: 20px;
+  font-family: monospace;
+}
