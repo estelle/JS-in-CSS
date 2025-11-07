@@ -123,19 +123,8 @@ h1 {
 
 article a {
   font-size: 1rem;
-  color: #999;
+  color: var(--tertiaryColor);
   text-decoration: underline;
-}
-
-.prev,
-.next {
-  float: left;
-  height: 50vh;
-  width: 4vw;
-}
-
-.next {
-  float: right;
 }
 
 /* show all the inputs in a group */
@@ -148,7 +137,7 @@ article {
   position: absolute;
   overflow: hidden;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 20px - 1rem);
   top: 0;
   left: 0;
   transition: all 0.25s ease-in;
@@ -185,6 +174,14 @@ h1 {
   font-size: 1.8rem;
   margin-bottom: 0px;
   color: var(--hiliteColor);
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+article a {
+  font-size: 1rem;
+  color: var(--tertiaryColor);
+  text-decoration: underline;
 }
 
 h2 {

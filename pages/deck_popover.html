@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>CSS-only slide deck</title>
+  <link rel="stylesheet" href="../css/files.css"><title>CSS-only slide deck</title>
+<style>
+
+    dt, dd {
+      color: var(--secondaryColor);
+      margin: 0;
+      white-space: pre;
+      font-family: monospace;
+    }
+    dd {
+      color: var(--textColor);
+    }
+    span {
+      color: var(--tertiaryColor);
+    }
+  [contenteditable] {
+    outline-color: var(--secondaryColor);
+    margin: 0;
+  }
+
+  </style>
+</head>
+<body>
+<dl>
+<dl>
+<dt>/* The buttons are links by default */</dt>
+<dd><span>button {</span>
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  display: block;
+  cursor: pointer;
+  font-size: 1em;
+  color: var(--hiliteColor);
+  <span>::before {</span>
+    content: " ";
+    border: 1px solid ;
+    margin-right: 0.5em;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+  <span>}</span>
+  <span>&:hover {</span>
+      color: var(--fourthColor);
+    <span>}</span>
+<span>}</span></dd>
+<dt>/* when a popup is visible, hide deck header, and buttons */</dt>
+<dd><span>:has(:popover-open) :where(#slides > h1, button) {</span>
+  visibility: hidden;
+  <span>&::before {</span>
+  content: none;
+  <span>}</span>
+<span>}</span></dd>
+<dt>/* the button BEFORE and AFTER the slide */</dt>
+<dd><span>button:has( + [popover]:popover-open),
+[popover]:popover-open + button + article + button {</span>
+  visibility: visible;
+  position: absolute;
+  bottom: 0;
+  span {</span>
+    white-space: nowrap;
+    position: absolute; 
+    bottom: -4em; 
+  <span>}</span>
+<span>}</span></dd>
+<dt>/* BEFORE only */</dt>
+<dd><span>button:has( + [popover]:popover-open) {</span>
+  left: 0;
+  <span>&::before {</span>
+    content: "« back";
+  <span>}</span>
+<span>}</span></dd>
+<dt>/* AFTER only */</dt>
+<dd><span>[popover]:popover-open + button + article + button {</span> 
+  right: 0;
+  <span><span>&::before {</span>
+  content: 'next »';
+  padding: 0 8px 4px;
+  color: var(--bgColor);
+  border-radius: 4px;
+  background-color: var(--hiliteColor);
+  line-height: 2;
+  box-shadow: var(--globalShadow);
+  <span>}</span>
+<span>}</span></dd>
+<dt>/* popover slides L&F */</dt>
+<dd><span>article {</span>
+  margin: 0;
+  width: 100%;
+  height: 90vh;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background-color: var(--bgColor);
+  border: none;
+<span>}</span>
+</dd> 
+</dl>
+</body>
+</html>
+
+

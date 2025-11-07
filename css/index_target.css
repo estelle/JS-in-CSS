@@ -122,19 +122,8 @@ h1 {
 
 article a {
   font-size: 1rem;
-  color: #999;
+  color: var(--tertiaryColor);
   text-decoration: underline;
-}
-
-.prev,
-.next {
-  float: left;
-  height: 50vh;
-  width: 4vw;
-}
-
-.next {
-  float: right;
 }
 
 /* show all the inputs in a group */
@@ -147,7 +136,7 @@ article {
   position: absolute;
   overflow: hidden;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 20px - 1rem);
   top: 0;
   left: 0;
   transition: all 0.25s ease-in;
@@ -184,6 +173,14 @@ h1 {
   font-size: 1.8rem;
   margin-bottom: 0px;
   color: var(--hiliteColor);
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+article a {
+  font-size: 1rem;
+  color: var(--tertiaryColor);
+  text-decoration: underline;
 }
 
 h2 {
@@ -298,23 +295,6 @@ figure > :not(figcaption) {
     display: none;
   }
 }
-#next,
-#back {
-  z-index: 1000;
-  position: absolute;
-  bottom: 5px;
-  left: 5px;
-  color: var(--textColor);
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-  letter-spacing: 1px;
-  font-size: 1rem;
-}
-
-#next {
-  left: auto;
-  right: 5px;
-}
-
 [contenteditable] {
   user-modify: plaintext-only;
   -webkit-user-modify: read-write-plaintext-only;

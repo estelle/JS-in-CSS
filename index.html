@@ -45,10 +45,24 @@ footer {
   </figure>
  </article>
 
- <input type="checkbox" id="chkbx_refresh">
-<label for="chkbx_refresh"><span>Intro to this slide deck</span></label>
+<input type="checkbox" id="chkbx_refresh">
+<label for="chkbx_refresh"><span>Slide deck features</span></label>
+<article>
+<header><h1>Slide deck features</h1></header>
+<figure>
+<ol>
+  <li>Refresh this deck.</li>
+  <li>Then hit the "back" button.</li>
+  <li>Then navigate directly back to this page.</li>
+</ol>
+</figure>
+</article>
+
+<input type="checkbox" id="chkbx_html">
+<label for="chkbx_html"><span>HTML for each slide</span></label>
 <article>
 <header><h1>This deck has no JS</h1></header>
+<figure>
 <pre>&lt;input type="checkbox" id="inputID">
 &lt;label for="inputID">&lt;span>Home label text&lt;/span>&lt;/label>
 &lt;article>
@@ -62,8 +76,9 @@ footer {
 <ol>
   <li>Refresh this deck.</li>
   <li>Then hit the "back" button.</li>
-  <li>Then navigate to the next page directly.</li>
+  <li>Then navigate directly back to this page.</li>
 </ol>
+</figure>
 </article>
 
 <input type="checkbox" id="chkbx_deck">
@@ -143,49 +158,20 @@ input:checked +
   display: none;
 }
 
-header {
-  margin-bottom: 0;
+/* show all the inputs in a group */
+input + label::after {
+  content: "";
+  display: block;
 }
-section > pre:first-child {
-  margin-top: 0;
+article {
+  position: absolute;
+  overflow: hidden;
+  width: 100vw;
+  height: calc(100vh - 20px - 1rem);
+  top: 0; left: 0;
+  transition: all 0.25s ease-in;
+  background-color: var(--bgColor);
 }
-  h1 {
-    font-size: 2rem;
-    text-align: center; 
-    margin-bottom: 1em;
-  }
-  article a {
-    font-size: 1rem; 
-    color: #999; 
-    text-decoration: underline;
-  }
-  .prev, 
-  .next {
-    float: left; height: 50vh; width: 4vw;
-  }
-  .next {
-    float: right;
-  }
-
-  /* show all the inputs in a group */
-  input + label::after {
-    content: "";
-    display: block;
-  }
-  article {
-    position: absolute;
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
-    top: 0; left: 0;
-    transition: all 0.25s ease-in;
-    background-color: var(--bgColor);
-  }
-
-
-
-
-
   </style>
   </figure>
 </article>

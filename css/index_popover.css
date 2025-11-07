@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* popover deck */
 /* variables */
 :root {
@@ -84,6 +83,14 @@ h1 {
   font-size: 1.8rem;
   margin-bottom: 0px;
   color: var(--hiliteColor);
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+article a {
+  font-size: 1rem;
+  color: var(--tertiaryColor);
+  text-decoration: underline;
 }
 
 h2 {
@@ -209,66 +216,6 @@ figure > :not(figcaption) {
   display: block;
   margin: 20px;
   font-family: monospace;
-}
-
-body:not(:has(:popover-open)) button {
-  color: var(--hiliteColor);
-}
-body:not(:has(:popover-open)) button:hover {
-  color: var(--fourthColor);
-}
-
-button {
-  appearance: none;
-  background-color: transparent;
-  border: none;
-  display: block;
-  cursor: pointer;
-}
-
-:has(:popover-open) h1 {
-  display: none;
-}
-
-article {
-  margin: 0;
-  width: 100%;
-  height: 90vh;
-  left: 0;
-  top: 0;
-  position: absolute;
-  background-color: var(--bgColor);
-}
-
-button:has(+ [popover]:popover-open),
-[popover]:popover-open + button + article + button {
-  position: absolute;
-  bottom: 0;
-}
-button:has(+ [popover]:popover-open) span,
-[popover]:popover-open + button + article + button span {
-  position: absolute;
-  bottom: -4em;
-}
-
-button:has(+ [popover]:popover-open) {
-  left: 0;
-}
-button:has(+ [popover]:popover-open)::before {
-  content: "BACK";
-}
-
-[popover]:popover-open + button + article + button {
-  right: 0;
-}
-[popover]:popover-open + button + article + button::after {
-  content: "next »";
-  padding: 0 8px 4px;
-  color: var(--bgColor);
-  border-radius: 4px;
-  background-color: var(--hiliteColor);
-  line-height: 2;
-  box-shadow: var(--globalShadow);
 }
 
 /*# sourceMappingURL=index_popover.css.map */

@@ -76,15 +76,8 @@ section > pre:first-child {
   }
   article a {
     font-size: 1rem; 
-    color: #999; 
+    color: var(--tertiaryColor); 
     text-decoration: underline;
-  }
-  .prev, 
-  .next {
-    float: left; height: 50vh; width: 4vw;
-  }
-  .next {
-    float: right;
   }
 
   /* show all the inputs in a group */
@@ -96,7 +89,7 @@ section > pre:first-child {
     position: absolute;
     overflow: hidden;
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 20px - 1rem);
     top: 0; left: 0;
     transition: all 0.25s ease-in;
     background-color: var(--bgColor);
