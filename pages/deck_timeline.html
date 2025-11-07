@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>CSS for timeline slide deck</title>
+  <link rel="stylesheet" href="../css/files.css">
+</head>
+<body>
+<dl contenteditable><dt>/* deck is a wide-gap flex row with scroll-snap */</dt>
+<dd><span>#slides {</span>
+  width: 100vw;
+  height: 80vh;
+  padding: 20px;
+  display: flex;
+  gap: 110vw;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+<span>}</span></dd><dt>/* slides snap to center */</dt>
+<dd><span>article {</span>
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  position: relative;
+<span>}</span></dd>
+<dt>/* move the page number */</dt>
+<dd><span>article:after {</span>
+  position: absolute;
+  bottom: calc(4rem + 15px);
+  right: auto; 
+  left: 90%; 
+  padding: 5px;
+<span>}</span></dd>
+</dl>
+
+    </html>

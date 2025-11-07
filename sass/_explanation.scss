@@ -6,6 +6,7 @@ dt, dd {
     }
     dd {
       color: var(--textColor);
+      margin: -1lh 0 1lh;
     }
     span {
       color: var(--tertiaryColor);
@@ -13,5 +14,6 @@ dt, dd {
   dl[contenteditable] {
     outline-color: var(--secondaryColor);
     margin: 0;
+    font-size: 1.6rem;
   }
 

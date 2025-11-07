@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JS-in-CSS | animation-timeline</title>
+<!--
+Made by: Estelle Weyl
+Copyright: 2025,  CC-SA-NC-BY - Creative Commons Attribution-NonCommercial-ShareAlike
+-->
+<link rel="stylesheet" href="css/styles.css"/>
+<style>
+
+</style>
+</head>
+
+<body>
+<div id="presentation">
+<div id="slides">
+<article id="title">
+  <header>
+    <h1>JS-in-CSS</h1>
+  </header>
+  <figure>
+    <object data="pages/intro.html"></object>
+  </figure>
+</article>
+
+
+<article id="style">
+  <header>
+    <h1>HTML for this deck</h1>
+  </header>
+  <figure>
+<pre><code>
+ &lt;article>
+  &lt;header>
+    &lt;h1>Slide Title&lt;/h1>
+  &lt;/header>
+  &lt;figure>
+    slide content
+  &lt;/figure>
+ &lt;/article>
+</code></pre>
+  </figure>
+ </article>
+
+
+<article id="functions">
+  <header>
+    <h1>@function</h1>
+  </header>
+  <figure>
+<style contenteditable="" class="editme largeStyle">
+@function --changeTransparency(--color, --alpha) {
+  result: rgb(from --color r g b / --alpha);
+}
+
+style {
+  background-color: 
+    --changeTransparency(var(--hiliteColor), 0);
+}</style>
+  </figure>
+</article>
+
+<article id="deck_css">
+  <header>
+    <h1>CSS carousel features</h1>
+  </header>
+  <figure>
+    <object data="pages/deck_timeline.html"></object>
+  </figure>
+</article>
+
+
+<article id="deck">
+  <header>
+    <h1>The actual &lt;style&gt;</h1>
+  </header>
+  <figure>
+<small>Reload page when done.</small>
+<style contenteditable class="editme">
+/* deck is a wide-gap flex row with scroll-snap */
+
+#slides {
+  width: 100vw;
+  height: 80vh;
+  padding: 20px;
+  display: flex;
+  gap: 110vw;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+/* slides snap to center */
+article {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  position: relative;
+}
+/* move the page number */
+article:after {
+  position: absolute;
+  bottom: calc(4rem + 15px);
+  right: auto; 
+  left: 90%; 
+  padding: 5px;
+}
+</style>
+  </figure>
+</article>
+
+<article id="deck2">
+  <header>
+    <h1>Left and right buttons</h1>
+  </header>
+  <figure>
+<small>Reload page when done.</small>
+<style contenteditable class="editme">
+</style>
+  </figure>
+</article>
+
+<article id="end">
+  <header>
+    <h1>The End!</h1>
+  </header>
+  <figure>
+    <object data="pages/intro.html"></object>
+  </figure>
+</article>
+
+<article id="resources">
+  <header>
+    <h1>Resources</h1>
+  </header>
+  <section class="content">
+ <div>
+      <ul>
+        <li>This talk: <a href="https://estelle.github.io/js-in-css/">estelle.github.io/JS-in-CSS</a></li>
+        <li>OpenWebDocs: <a href="https://openwebdocs.org/">OpenWebDocs.org</a></li>
+        <li>Specificity: <a href="https://specifishity.com">SpeciFISHity.com</a></li>
+        <li>Custom properties: <a href="https:developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties">Using CSS custom properties (variables)</a></li>
+        <li>Selectors: <a href="https://estelle.github.io/selectors/">estelle.github.io/selectors/</a>, specifically <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:has"><code>:has()</code></a></li>
+        <li>CSS functions: <a href="https:developer.mozilla.org/en-US/docs/Web/CSS/CSS_values_and_units/CSS_value_functions">CSS value functions</a> and the <a href="https:developer.mozilla.org/en-US/docs/Web/CSS/if"><code>if()</code></a> function</li>
+        <li>Custom properties: <a href="https:developer.mozilla.org/en-US/docs//en-US/docs/Web/HTML/Reference/Global_attributes/contenteditable">HTML <code>contenteditable</code> attribute</a></li>
+      </ul>
+    </div>
+  </section>
+</article>
+
+</div>
+</div>
+</body>
+</html>
