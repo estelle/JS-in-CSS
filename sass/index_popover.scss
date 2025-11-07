@@ -1,0 +1,64 @@
+/* popover deck */
+@forward "vars";
+@forward "layout";
+@forward "counter";
+@forward "content";
+@forward "figure";
+@forward "print";
+@forward "carousel";
+@forward "editme";
+body:not(:has(:popover-open)){
+    button {
+        color: var(--hiliteColor);
+        &:hover {
+            color: var(--fourthColor);
+        }
+    }
+}
+button {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    display: block;
+    cursor: pointer;
+}
+:has(:popover-open) h1 {
+  display: none;
+}
+article {
+  margin: 0;
+  width: 100%;
+  height: 90vh;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background-color: var(--bgColor);
+}
+button:has( + [popover]:popover-open),
+[popover]:popover-open + button + article + button {
+    position: absolute;
+    bottom: 0;
+    span {
+        position: absolute; 
+        bottom: -4em; 
+    }
+}
+button:has( + [popover]:popover-open) {
+    left: 0;
+    &::before {
+        content: "BACK"
+    }
+}
+
+[popover]:popover-open + button + article + button { 
+  right: 0;
+  &::after {
+    content: 'next »';
+    padding: 0 8px 4px;
+    color: var(--bgColor);
+    border-radius: 4px;
+    background-color: var(--hiliteColor);
+    line-height: 2;
+    box-shadow: var(--globalShadow);
+  }
+}

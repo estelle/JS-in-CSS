@@ -1,0 +1,274 @@
+@charset "UTF-8";
+/* popover deck */
+/* variables */
+:root {
+  --textColor: #090057;
+  --bgColor: #fffffd;
+  --hiliteColor: #9900a1;
+  --tertiaryColor: #cd72aa;
+  --fourthColor: #e69b55;
+  --secondaryColor: #ffc600;
+  --globalShadow: rgb(0 0 0 / 0.3) 0 0 2px 1px;
+  --showHashTag: false;
+}
+
+body {
+  font-family: "Raleway", "Open sans", "Trebuchet MS", Arial, Helvetica, sans-serif, "Droid Sans";
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  background: var(--bgColor);
+  color: var(--textColor);
+}
+
+#presentation {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  display: block;
+  overflow: hidden;
+}
+
+.slides {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  transition: transform 1s ease-in-out;
+  transform: scale(0.8);
+  background-color: var(--bgColor);
+}
+
+footer {
+  position: absolute;
+  top: 1em;
+  left: 0;
+  color: var(--secondaryColor);
+}
+
+/* CSS Counter */
+body {
+  counter-reset: pagecount;
+}
+
+article {
+  counter-increment: pagecount;
+}
+
+article:after {
+  content: counter(pagecount);
+  color: var(--hiliteColor);
+  background: var(--bgColor);
+  position: absolute;
+  bottom: calc(2rem + 15px);
+  right: 1rem;
+  padding: 5px;
+}
+
+/* Content */
+header {
+  font-weight: normal;
+  text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+  font-size: 2rem;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0px;
+  color: var(--hiliteColor);
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+h1:first-child {
+  margin-top: 0;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+h4, p, li {
+  font-size: 1.2rem;
+}
+
+footer {
+  text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+  margin: 20px 30px 0;
+  display: block;
+  overflow: hidden;
+}
+
+footer {
+  font-size: 1rem;
+  margin: 20px 0 0 30px;
+}
+
+a {
+  color: var(--hiliteColor);
+  display: inline-block;
+  text-decoration: none;
+  line-height: 110%;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+pre, style {
+  text-align: left;
+  padding: 10px;
+  border-radius: 8px;
+  line-height: 1.4;
+  tab-size: 2;
+  outline-color: var(--tertiaryColor);
+}
+
+.content,
+.content input,
+button {
+  font-size: 2rem;
+}
+
+article:first-child header {
+  font-size: 2.5rem;
+}
+
+ul {
+  margin: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 2rem;
+}
+
+img {
+  max-height: 25vh;
+  display: block;
+  margin: auto;
+}
+
+figure {
+  display: block;
+  text-align: center;
+  height: 100%;
+}
+figure > :not(figcaption) {
+  text-align: left;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: none;
+}
+
+@media print {
+  article {
+    page-break-inside: avoid;
+    page-break-after: always;
+    visibility: visible !important;
+    font-size: 20pt;
+    font-family: Arial, sans-serif;
+  }
+  @page {
+    size: landscape;
+  }
+  body {
+    font-size: 12pt;
+    background: white;
+  }
+  header h1 {
+    border-top: 2pt solid gray;
+    border-bottom: 1px dotted silver;
+  }
+  #info, #topinfo, .counter {
+    display: none;
+  }
+}
+[contenteditable] {
+  user-modify: plaintext-only;
+  -webkit-user-modify: read-write-plaintext-only;
+}
+
+.editme {
+  color: var(--textColor);
+  white-space: pre;
+  display: block;
+  margin: 20px;
+  font-family: monospace;
+}
+
+body:not(:has(:popover-open)) button {
+  color: var(--hiliteColor);
+}
+body:not(:has(:popover-open)) button:hover {
+  color: var(--fourthColor);
+}
+
+button {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  display: block;
+  cursor: pointer;
+}
+
+:has(:popover-open) h1 {
+  display: none;
+}
+
+article {
+  margin: 0;
+  width: 100%;
+  height: 90vh;
+  left: 0;
+  top: 0;
+  position: absolute;
+  background-color: var(--bgColor);
+}
+
+button:has(+ [popover]:popover-open),
+[popover]:popover-open + button + article + button {
+  position: absolute;
+  bottom: 0;
+}
+button:has(+ [popover]:popover-open) span,
+[popover]:popover-open + button + article + button span {
+  position: absolute;
+  bottom: -4em;
+}
+
+button:has(+ [popover]:popover-open) {
+  left: 0;
+}
+button:has(+ [popover]:popover-open)::before {
+  content: "BACK";
+}
+
+[popover]:popover-open + button + article + button {
+  right: 0;
+}
+[popover]:popover-open + button + article + button::after {
+  content: "next »";
+  padding: 0 8px 4px;
+  color: var(--bgColor);
+  border-radius: 4px;
+  background-color: var(--hiliteColor);
+  line-height: 2;
+  box-shadow: var(--globalShadow);
+}
+
+/*# sourceMappingURL=index_popover.css.map */

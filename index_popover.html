@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JS-in-CSS | popover</title>
+<!--
+Made by: Estelle Weyl
+Copyright: 2025,  CC-SA-NC-BY - Creative Commons Attribution-NonCommercial-ShareAlike
+-->
+<link rel="stylesheet" href="css/index_popover.css"/>
+
+</style>
+</head>
+
+<body>
+  <div id="presentation">
+   <div id="slides">
+    <h1><a href="https://estelle.github.io/JS-in-CSS">Estelle.GitHub.io/JS-in-CSS</a></h1>
+
+<article popover id="title">
+  <header>
+    <h1>JS-in-CSS</h1>
+  </header>
+  <figure>an object
+    <object data="pages/intro.html"></object>
+  </figure>
+</article>
+<button popovertarget="title" checked><span>Intro</span></button>
+
+
+<article popover id="awesome">
+<header><h1>Remember me?</h1></header>
+  <figure>an object
+    <object 
+data="pages/awesome.html"></object>
+  </figure>
+ </article>
+<button popovertarget="awesome"><span>CSS is awesome</span></button>
+
+<article popover id="style">
+  <header>
+    <h1>&lt;style&gt;</h1>
+  </header>
+  <figure>an object
+    <object 
+data="pages/style.html"></object>
+  </figure>
+  </article>
+<button popovertarget="style"><span>Editing CSS</span></button>
+
+
+
+<article popover id="vars">
+<header>
+  <h1>Site variables</h1>
+</header>
+<figure>
+  <object data="sass/_vars.scss"></object>
+</figure>
+</article>
+<button popovertarget="vars"><span>Site variables</span></button>
+
+
+<article popover id="liveVariables">
+<header><h1>CSS custom properties</h1></header>
+<figure>
+<small>Reload page when done.</small>
+<style contenteditable class="editme">:root {
+  --textColor: #090057;
+  --bgColor: #fffffd;
+  --hiliteColor: #9900a1;
+  --tertiaryColor: #cd72aa;
+  --fourthColor: #e69b55;
+  --secondaryColor: #ffc600;
+  --globalShadow: rgb(0 0 0 / 0.3)  0 0 2px 1px;
+  --showHashTag: false;
+}</style>
+</figure>
+</article>
+<button popovertarget="liveVariables"><span>CSS custom properties</span></button>
+
+
+<article popover id="showHashTag">
+<header><h1>if() statements</h1></header>
+<style contenteditable class="editme">footer {
+  display: if(
+    style(--showHashTag: true): block;
+    else: none;
+  );
+}
+:root {
+  --showHashTag: false;
+}</style>
+</article>
+<button popovertarget="showHashTag"><span>CSS if() function</span></button>
+
+<article popover id="deck" >
+  <header>
+    <h1>&lt;style&gt;</h1>
+  </header>
+  <figure>an object
+    <object 
+data="pages/deck_target.html"></object>
+  </figure>
+</article>
+<button popovertarget="deck"><span>Understanding this slide deck</span></button>
+
+<article popover id="theCode" >
+  <header>
+    <h1>&lt;style&gt;</h1>
+  </header>
+  <figure style="overflow: scroll;">
+<style class="editme" contenteditable="">
+
+</style>
+  </figure>
+</article>
+<button popovertarget="theCode"><span>Slide deck CSS functionality</span></button>
+
+
+<article popover id="title2">
+  <header>
+    <h1>The end!</h1>
+  </header>
+  <figure>an object
+    <object 
+data="pages/intro.html"></object>
+  </figure>
+</article>
+<button popovertarget="title2" checked><span>Outro</span></button>
+
+
+
+
+<article popover id="resources" style="background-position: right 1vw top 1vh">
+  <header>
+    <h1>Resources</h1>
+  </header>
+  <section class="content">
+    <div>
+      <ul>
+        <li>This talk: <a href="https://estelle.github.io/js-in-css/">estelle.github.io/JS-in-CSS</a></li>
+        <li>OpenWebDocs: <a href="https://openwebdocs.org/">OpenWebDocs.org</a></li>
+        <li>Specificity: <a href="https://specifishity.com">SpeciFISHity.com</a></li>
+        <li>Custom properties: <a href="https:developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties">Using CSS custom properties (variables)</a></li>
+        <li>Selectors: <a href="https://estelle.github.io/selectors/">estelle.github.io/selectors/</a>, specifically <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:has"><code>:has()</code></a></li>
+        <li>CSS functions: <a href="https:developer.mozilla.org/en-US/docs/Web/CSS/CSS_values_and_units/CSS_value_functions">CSS value functions</a> and the <a href="https:developer.mozilla.org/en-US/docs/Web/CSS/if"><code>if()</code></a> function</li>
+        <li>Custom properties: <a href="https:developer.mozilla.org/en-US/docs//en-US/docs/Web/HTML/Reference/Global_attributes/contenteditable">HTML <code>contenteditable</code> attribute</a></li>
+      </ul>
+    </div>
+  </section>
+</article>
+<button popovertarget="resources"><span>Resources</span></button>
+   </div>
+  </div>
+</body>
+</html>
