@@ -7,7 +7,7 @@
 Made by: Estelle Weyl
 Copyright: 2025,  CC-SA-NC-BY - Creative Commons Attribution-NonCommercial-ShareAlike
 -->
-<link rel="stylesheet" href="css/index_inputs.css"/>
+<link rel="stylesheet" href="css/styles.css"/>
 <style>
 footer {
   display: if(
@@ -61,7 +61,7 @@ footer {
 <input type="checkbox" id="chkbx_html">
 <label for="chkbx_html"><span>HTML for each slide</span></label>
 <article>
-<header><h1>This deck has no JS</h1></header>
+<header><h1>HTML for :checked deck</h1><small>This deck has no JS</small></header>
 <figure>
 <pre>&lt;input type="checkbox" id="inputID">
 &lt;label for="inputID">&lt;span>Home label text&lt;/span>&lt;/label>
@@ -73,18 +73,13 @@ footer {
     &lt;object data="pages/somePage.html">&lt;/object>
   &lt;/figure>
 &lt;/article></pre>
-<ol>
-  <li>Refresh this deck.</li>
-  <li>Then hit the "back" button.</li>
-  <li>Then navigate directly back to this page.</li>
-</ol>
 </figure>
 </article>
 
 <input type="checkbox" id="chkbx_deck">
 <label for="chkbx_deck"><span>CSS of slide deck explained</span></label>
 <article>
-<header><h1>&lt;style&gt; with :checked</h1></header>
+<header><h1>CSS of :checked slide deck explained</h1></header>
   <figure><object data="pages/deck_checkbox.html"></object></figure>
 </article>
 
@@ -181,7 +176,7 @@ article {
 <label for="chkbx_title3"><span>Links to next deck</span></label>
 <article>
   <header>
-    <h1>The end!</h1>
+    <h1>The the <a href="index_target.html">:target</a> example</h1>
   </header>
   <figure>
     <object data="pages/intro.html"></object>

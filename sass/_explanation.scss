@@ -1,0 +1,17 @@
+dt, dd {
+      color: var(--secondaryColor);
+      margin: 0;
+      white-space: pre;
+      font-family: monospace;
+    }
+    dd {
+      color: var(--textColor);
+    }
+    span {
+      color: var(--tertiaryColor);
+    }
+  dl[contenteditable] {
+    outline-color: var(--secondaryColor);
+    margin: 0;
+  }
+

@@ -1,4 +1,4 @@
-/* popover deck */
+/* checkbox, target, carousel, and popover decks */
 /* variables */
 :root {
   --textColor: #090057;
@@ -218,4 +218,4 @@ figure > :not(figcaption) {
   font-family: monospace;
 }
 
-/*# sourceMappingURL=index_popover.css.map */
+/*# sourceMappingURL=styles.css.map */

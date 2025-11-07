@@ -7,7 +7,7 @@
 Made by: Estelle Weyl
 Copyright: 2025,  CC-SA-NC-BY - Creative Commons Attribution-NonCommercial-ShareAlike
 -->
-<link rel="stylesheet" href="css/index_popover.css"/>
+<link rel="stylesheet" href="css/styles.css"/>
 
 </style>
 </head>
@@ -48,11 +48,23 @@ Copyright: 2025,  CC-SA-NC-BY - Creative Commons Attribution-NonCommercial-Share
 
 
 
+<article popover id="popovers">
+<header><h1>popover and popovertarget</h1></header>
+  <figure>
+<pre>
+&lt;article popover id="popoverID">&lt;/article>
+&lt;button popovertarget="popoverID">Button text&lt;/button>
+</pre>
+  </figure>
+ </article>
+<button popovertarget="popovers"><span>popover &amp; popovertarget attributes</span></button>
+
+
 
 
 <article popover id="deck" >
   <header>
-    <h1>&lt;style&gt;</h1>
+    <h1>CSS of popover slide deck explained</h1>
   </header>
   <figure>
     <object 
@@ -64,7 +76,7 @@ data="pages/deck_popover.html"></object>
 
 <article popover id="theCode" >
   <header>
-    <h1>&lt;style&gt;</h1>
+    <h1>The actual &lt;style&gt;</h1>
   </header>
   <figure style="overflow: scroll;">
 <style class="editme" contenteditable="">/* The buttons are links by default */
