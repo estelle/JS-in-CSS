@@ -12,7 +12,7 @@
   transition: all 0.25s ease-in; 
 <span>}</span></dd><dt>/* current */</dt><dd><span>input:checked + label + article {</span>
   transform: translate(0, 0) scale(1) rotate(0deg);  
-<span>}</span></dd><dt>/* back button */</dt><dd><span>input:checked + label:after {</span>
+<span>}</span></dd><dt>/* back button */</dt><dd><span>input:checked + label::after {</span>
   content: '« back';
   position: absolute;
   bottom: 20px;
@@ -27,7 +27,7 @@
   appearance: none;
   font-size: 1rem;
 <span>}
-input:checked + label + article+ input:not(:checked):after {</span>
+input:checked + label + article+ input:not(:checked)::after {</span>
   content: 'next »';
   padding: 0 8px 4px;
   color: var(--white);

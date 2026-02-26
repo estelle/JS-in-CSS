@@ -25,6 +25,15 @@ Copyright: 2025,  CC-SA-NC-BY - Creative Commons Attribution-NonCommercial-Share
   </figure>
 </article>
 
+<article>
+  <header>
+    <h1>Scroll to the right</h1>
+  </header>
+  <figure>
+    <h1>Slides snap into place...</h1>
+  </figure>
+</article>
+
 
 
 <article>
@@ -91,26 +100,12 @@ article {
   position: relative;
 }
 /* move the page number */
-article:after {
+article::after {
   position: absolute;
   bottom: calc(4rem + 15px);
   right: auto; 
   left: 90%; 
   padding: 5px;
-}
-</style>
-  </figure>
-</article>
-
-<article>
-  <header>
-    <h1>Let's Animate this!</h1>
-  </header>
-  <figure>
-    <small>Comment this out to animate the deck</small>
-<style contenteditable class="editme largeStyle">
-body article {
-  animation-name: none;
 }
 </style>
   </figure>
@@ -127,6 +122,7 @@ body article {
 article {
   animation: identifier 1ms linear;
   animation-timeline: view(inline);
+  animation: none;
 }
 
 @keyframes identifier {
@@ -146,6 +142,14 @@ article {
 
 
 
+<article>
+  <header>
+    <h1>Control movement</h1>
+  </header>
+  <figure>
+    <object data="pages/controller.html"></object>
+  </figure>
+</article>
 
 <article>
   <header>

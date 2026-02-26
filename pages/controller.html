@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Controller</title>
+    <base target="_parent"/>
+    <link rel="stylesheet" href="../css/files.css">
+  </head>
+  <body>
+<!-- original: https://gist.github.com/Corncycle/abe4afee3129c8fad7b54975e845edfd -->
+<div id="container">
+  <div id="board">
+    <div id="keyboard"></div>
+    <div id="gamepad"></div>
+    <div id="icon"></div>
+    <details class="LRbutton">
+      <summary></summary>
+      <div></div>
+    </details>
+    <details class="LRbutton">
+      <summary style=""></summary>
+      <div></div>
+    </details>
+    <details class="LRbutton">
+      <summary style=""></summary>
+      <div></div>
+    </details>
+    <details class="LRbutton">
+      <summary style=""></summary>
+      <div></div>
+    </details>
+    <details class="LRbutton">
+      <summary style=""></summary>
+      <div></div>
+    </details>
+    <div>
+      <details class="TBbutton">
+        <summary></summary>
+        <div></div>
+      </details>
+      <details class="TBbutton">
+        <summary></summary>
+        <div></div>
+      </details>
+      <details class="TBbutton">
+        <summary></summary>
+        <div></div>
+      </details>
+      <details class="TBbutton">
+        <summary></summary>
+        <div></div>
+      </details>
+      <details class="TBbutton">
+        <summary></summary>
+        <div></div>
+      </details>
+    </div>
+  </div>
+</div>
+
+<style contenteditable="" class="editme">
+@function --leftRight(--position) {
+  result: calc(
+      ((var(--width) / 2) + (var(--iconWidth) * (var(--position) - 1)) + 10px) - 
+      var(--iconNum) * calc(100% - var(--width)))
+}
+@function --topBottom(--position) {
+  result: calc( (var(--width) + (var(--iconWidth) * var(--position)) + 10px) - 
+       var(--iconNum) * calc(100% -  var(--height)));
+}
+details:nth-of-type(3) ~ details {
+  display: if(style(--horizontalCount: 4): none);
+}
+details:nth-of-type(4) ~ details {
+  display: if(style(--horizontalCount: 5): none);
+}
+summary {
+  outline: 1px solid red;
+}
+details {
+  outline: 1px solid yellow;
+}
+
+:root {
+  --width: 160px;
+  --horizontalCount: 4;
+  --verticalCount: 4;
+  --height: calc( var(--width) * 1.5);
+  --iconWidth: calc(var(--width) / var(--horizontalCount));
+  --iconNum: calc(var(--iconWidth) / 1px);
+  --kpdPadding: 10px;
+  --kpd: calc( var(--width) / 2 - (var(--kpdPadding) * 2));
+}
+ #container {
+  width: var(--width);
+  height: var(--height);
+  text-indent: 0;
+  line-height: 0;
+  font-size: 0;
+  overflow: hidden;
+   background: yellow;
+}
+#board {
+  display: inline-flex;
+  position: relative;
+  top: 0;
+  padding-right: var(--width);
+  padding-bottom: var(--height);
+  background: #ccc;
+}
+#icon {
+  position: absolute;
+  /* relative to #board, which is 0 to 5px wide */
+  left: calc(var(--iconNum) * calc(100% - var(--width)));
+  top: calc(var(--iconNum) * calc(100% - var(--height)));
+  width: var(--iconWidth);
+  height: var(--iconWidth);
+  background-color: #333;
+  border-radius: 50%;
+}
+#keyboard {
+  position: absolute;
+  left: 0;
+  top: var(--width);
+  width: var(--width);
+  height: calc(var(--width) / 2);
+  background: #333;
+}
+#gamepad {  position:absolute;
+  left: calc((var(--width) -  var(--kpd)) / 2);
+  top: calc(var(--width) + 10px);
+  width: var(--kpd);
+  height: var(--kpd);
+  background: linear-gradient(to right, transparent 33% , white 33% 67% , transparent 67%),
+    linear-gradient(to top, transparent 33% , white 33% 67% , transparent 67%);
+}
+summary {
+  position: absolute;
+  list-style: none;
+  width: calc( var(--kpd) / 3);
+  height: calc( var(--kpd) / 3);
+  cursor: pointer;
+}
+.LRbutton {
+  summary {
+    top: calc(var(--width) + var(--kpd) / 2);
+  }
+  div {
+    width: 1px;
+  }
+  &:nth-of-type(1) summary {
+    left: --leftRight(1);
+  }
+  &:nth-of-type(2) summary {
+    left: --leftRight(2);
+  }
+  &:nth-of-type(3) summary {
+     left: --leftRight(3);
+  }
+  &:nth-of-type(4) summary {
+     left: --leftRight(4);
+  }
+  &:nth-of-type(5) summary {
+     left: --leftRight(5);
+  }
+}
+.TBbutton {
+  summary {
+    left: calc( var(--width)/2 - (var(--kpd) / 6));
+  }
+  div {
+    height: 1px;
+  }
+  &:nth-of-type(1) summary {
+     top: --topBottom(1);
+  }
+  &:nth-of-type(2) summary {
+     top: --topBottom(2);
+  }
+  &:nth-of-type(3) summary {
+    top: --topBottom(3);
+  }
+  &:nth-of-type(4) summary {
+    top: --topBottom(4);
+  }
+  &:nth-of-type(5) summary {
+    top: --topBottom(5);
+  }
+}
+
+</style>
+  </body>
+</html>
+

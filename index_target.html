@@ -8,23 +8,11 @@ Made by: Estelle Weyl
 Copyright: 2025,  CC-SA-NC-BY - Creative Commons Attribution-NonCommercial-ShareAlike
 -->
 <link rel="stylesheet" href="css/styles.css"/>
-<style>
-footer {
-  display: if(
-    style(--showHashTag: true): block;
-    else: none;
-  );
-}
-</style>
-<style>
-
-</style>
 </head>
 
 <body>
 <div id="presentation">
 <div id="slides">
-
 
 <article id="title">
   <header>
@@ -34,14 +22,16 @@ footer {
     <object data="pages/intro.html"></object>
   </figure>
 </article>
-<a href="#title" checked><span>Intro</span></a>
+<a href="#title"><span>Intro</span></a>
 
 
 <article id="awesome">
-<header><h1>Remember me?</h1></header>
+<header><h1>calc-size(intrinsic, size)</small></header>
   <figure>
     <object data="pages/awesome.html"></object>
+      
   </figure>
+
  </article>
 <a href="#awesome"><span>CSS is awesome</span></a>
 
@@ -68,7 +58,7 @@ footer {
   --fourthColor: #e69b55;
   --secondaryColor: #ffc600;
   --globalShadow: rgb(0 0 0 / 0.3)  0 0 2px 1px;
-  --showHashTag: false;
+  --showHashTag: true;
 }</style>
 </figure>
 </article>
@@ -84,42 +74,53 @@ footer {
   );
 }
 :root {
-  --showHashTag: false;
+  /* --showHashTag: false; */
 }</style>
 </article>
 <a href="#showHashTag"><span>CSS if() function</span></a>
 
 
 <article id="html">
-  <header>
-    <h1>HTML for :target deck</h1>
-  </header>
-  <figure>
+<header><h1>HTML for :target deck</h1><small>This deck also has no JS</small></header>
+<figure>
 <pre>&lt;article id="slideID">
   &lt;header>
     &lt;h1>Page title&lt;/h1>
   &lt;/header>
   &lt;figure>
-    Contents of page (often and &lt;object>)
+    Contents of page (often an &lt;object>)
   &lt;/figure>
 &lt;/article>
-&lt;a href="#slideID" checked>&lt;span>Accessible name&lt;/span>&lt;/a>
+&lt;a href="#slideID">
+  &lt;span>Accessible name for current slide&lt;/span>
+&lt;/a>
 </pre>
   </figure>
 </article>
-<a href="#html" checked><span>HTML for deck</span></a>
+<a href="#html"><span>HTML for deck</span></a>
 
 
 
 <article id="deck" >
   <header>
-    <h1>CSS of :target slide deck explained</h1>
+    <h1>CSS for :target slides</h1>
   </header>
   <figure>
     <object data="pages/deck_target.html"></object>
   </figure>
 </article>
 <a href="#deck"><span>CSS of deck explained</span></a>
+
+<article id="buttons" >
+  <header>
+    <h1>CSS for :target buttons</h1>
+  </header>
+  <figure>
+    <object data="pages/deck_target.html#buttons"></object>
+  </figure>
+</article>
+<a href="#buttons"><span>CSS of deck buttons explained</span></a>
+
 
 <article id="theCode" >
   <header>
@@ -154,10 +155,8 @@ body article:target + a + article{
 article ~ a::before {
   content: '<< back';
   position:absolute; bottom: 20px; left: 20px;
-  width: 5em;
-  transform: translatez(0);
-  z-index: 5000;
   cursor: pointer;
+  z-index: 5000;
 
 }
 /* except the current one */
@@ -169,16 +168,17 @@ article:target ~ a::before {
 #slides > a span,
 article:target ~ a {display: none;}
 
-/* make just one next visible */
-article:first-of-type + a + article + a,
+/* make the first slide's next visible if no target */
+article:nth-of-type(2) + a,
+/* make just one "next" visible */
 body article:target + a + article + a {
   display: block;
   position:absolute; bottom: 20px; right: 20px;
   cursor: pointer;
-  &:before {
+  &::before {
     display: none;
   }
-  &:after {
+  &::after {
     content: 'next »';
     padding: 0 8px 4px;
     color: var(--bgColor);
@@ -205,7 +205,7 @@ body article:target + a + article + a {
     <object data="pages/intro.html"></object>
   </figure>
 </article>
-<a href="#title2" checked><span>Outro</span></a>
+<a href="#title2"><span>Outro</span></a>
 
 
 

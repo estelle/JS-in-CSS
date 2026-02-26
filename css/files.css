@@ -38,6 +38,10 @@ p {
   display: block;
   margin: 20px;
   font-family: monospace;
+  max-height: 70vh;
+  min-height: auto;
+  overflow: scroll;
+  font-size: 1.3rem;
 }
 
 body {
