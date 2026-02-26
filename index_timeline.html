@@ -36,23 +36,6 @@ Copyright: 2025,  CC-SA-NC-BY - Creative Commons Attribution-NonCommercial-Share
 
 
 
-<article>
-  <header>
-    <h1>@function</h1>
-  </header>
-  <figure>
-<style contenteditable="" class="editme largeStyle this">@function --changeTransparency(--fromColor, --alphaVal) {
-  result: 
-    rgb(from var(--fromColor) r g b / var(--alphaVal));
-}
-
-style.this {
-  background-color: 
-    --changeTransparency(var(--hiliteColor), 0.1);
-}</style>
-</figure>
-</article>
-
 
 <article>
   <header>
@@ -138,6 +121,38 @@ article {
 }
 </style>
   </figure>
+</article>
+
+<article>
+  <header>CSS if statements</header>
+<style class="editme" contenteditable="">
+footer {
+  display: if(
+    style(--showHashTag: true): block;
+    else: none;
+  );
+}
+
+.editme {}
+</style>
+</article>
+
+
+<article>
+  <header>
+    <h1>@function</h1>
+  </header>
+  <figure>
+<style contenteditable="" class="editme largeStyle this">@function --changeTransparency(--fromColor, --alphaVal) {
+  result: 
+    rgb(from var(--fromColor) r g b / var(--alphaVal));
+}
+
+style.this {
+  background-color: 
+    --changeTransparency(var(--hiliteColor), 0.1);
+}</style>
+</figure>
 </article>
 
 

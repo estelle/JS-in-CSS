@@ -8,6 +8,14 @@ Made by: Estelle Weyl
 Copyright: 2025,  CC-SA-NC-BY - Creative Commons Attribution-NonCommercial-ShareAlike
 -->
 <link rel="stylesheet" href="css/styles.css"/>
+<style>
+footer {
+  display: if(
+    style(--showHashTag: true): block;
+    else: none;
+  );
+}
+</style>
 </head>
 
 <body>
@@ -31,10 +39,26 @@ Copyright: 2025,  CC-SA-NC-BY - Creative Commons Attribution-NonCommercial-Share
 <label for="chkbx_question"><span>Let me ask...</span></label>
 <article>
   <figure>
+    <style class="editme" contenteditable="" style="visibility: hidden">:root {
+  --x: y;
+}
+</style>
     <h1>Is CSS a programming language?</h1>
   </figure>
-</article>
 
+</article>
+<input type="checkbox" id="chkbx_question2">
+<label for="chkbx_question2"><span>Let me ask...</span></label>
+<article>
+  <figure>
+    <style class="editme" contenteditable="">:root {
+  --showHashTag: true;
+}
+</style>
+    <h1>Is CSS a programming language?</h1>
+  </figure>
+
+</article>
 
 <input type="checkbox" id="chkbx_awesome">
 <label for="chkbx_awesome"><span>CSS is awesome</span></label>
@@ -74,6 +98,17 @@ Copyright: 2025,  CC-SA-NC-BY - Creative Commons Attribution-NonCommercial-Share
   &lt;/figure>
 &lt;/article></pre>
 </figure>
+</article>
+
+<input type="checkbox" id="chkbx_overview" checked>
+<label for="chkbx_overview"><span>Title slide</span></label>
+<article>
+  <header>
+    <h1>Who, what, and why!</h1>
+  </header>
+  <figure>
+    <object data="pages/intro.html"></object>
+  </figure>
 </article>
 
 <input type="checkbox" id="chkbx_deck">
@@ -149,24 +184,6 @@ article {
 }
   </style>
   </figure>
-</article>
-
-<input type="checkbox" id="chkbx_if">
-<label for="chkbx_if"><span>Show/Hide hashtag</span></label>
-<article>
-  <header>CSS if statements</header>
-<style class="editme" contenteditable="">
-footer {
-  display: if(
-    style(--showHashTag: true): block;
-    else: none;
-  );
-}
-
-
-
-.editme {}
-</style>
 </article>
 
 

@@ -197,6 +197,31 @@ body article:target + a + article + a {
 <a href="#theCode"><span>Slide deck's actual CSS</span></a>
 
 
+
+
+<article id="theCounter" >
+  <header>
+    <h1>The counter</h1>
+  </header>
+  <figure style="overflow: scroll;">
+<style class="editme" contenteditable="">
+/* CSS Counter */
+body {counter-reset: pagecount;}
+article{counter-increment: pagecount;}
+article::after {
+  content: counter(pagecount);
+  color: var(--hiliteColor);
+  background: var(--bgColor);
+  position: absolute;
+  bottom: calc(2rem + 15px);
+  right: 1rem; padding: 5px;
+}
+</style>
+  </figure>
+</article>
+<a href="#theCounter"><span>Slide deck's counter</span></a>
+
+
 <article id="title2">
   <header>
     <h1>See the <a href="index_popover.html">Popover</a> example</h1>
