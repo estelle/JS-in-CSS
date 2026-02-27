@@ -7,16 +7,9 @@
 </head>
 <body>
 <dl>
-<dt>/* all / future */</dt>
+<dt>/* all slides */</dt>
 <dd><span>article {</span>
   transform: translate(100%, 0) scale(0.1) rotate(180deg);
-  position: absolute;
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
-  top: 0; left: 0;
-  transition: all 0.25s ease-in;
-  background-color: #333;
 <span>}</span></dd>
 <dt>/* current */</dt>
 <dd><span>article:target {</span>
@@ -29,11 +22,8 @@
 <dt>/* Make all links look like back buttons */</dt>
 <dd><span>article ~ a::after {</span>
   content: '<< back';
-  position:absolute; bottom: 20px; left: 20px;
-  width: max-content;
-  background-color: #333;
+  position:absolute;
   transform: translatez(0);
-  cursor: pointer;
 <span>}</span></dd>
 <dt id="buttons">/* Hide link for current and future slide */</dt>
 <dd><span>article:target ~ a::after,
@@ -43,15 +33,9 @@ article:target ~ a {</span>
 <span>}</span></dd>
 <dt>/* Just the link for the slide after the current one */</dt>
 <dd><span>article:target + a + article + a {</span>
-  display: block;
-  visibility: visible;
   position:absolute; bottom: 20px; right: 20px;
-  cursor: pointer;
-  color: #ccc;
-  background-color: #333;
-  border: none;
-  font-size: 1rem;
-  width: max-content;
+  display: block;
+  position: absolute;
 <span>}</span></dd>
 <dt>/* And the generated content on that link */</dt>
 <dd><span>article:target + a + article+ a::after {</span>
@@ -59,9 +43,22 @@ article:target ~ a {</span>
   display: block;
 <span>}</span>
 
-
-
-
+<dt>/* basic styles */</dt>
+<dd><span>article {</span>
+  position: absolute;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  top: 0; left: 0;
+  transition: all 0.25s ease-in;
+  background-color: #333;
+<span>}</span></dd>
+<dd><span>article ~ a::after {</span>
+  position:absolute; 
+  bottom: 20px; 
+  left: 20px;
+  background-color: #333;
+<span>}</span></dd>
 </dd>
 </dl>
 </body>

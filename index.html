@@ -48,7 +48,7 @@ footer {
 
 </article>
 <input type="checkbox" id="chkbx_question2">
-<label for="chkbx_question2"><span>Let me ask...</span></label>
+<label for="chkbx_question2"><span>Remove hashtag</span></label>
 <article>
   <figure>
     <style class="editme" contenteditable="">:root {
@@ -100,8 +100,8 @@ footer {
 </figure>
 </article>
 
-<input type="checkbox" id="chkbx_overview" checked>
-<label for="chkbx_overview"><span>Title slide</span></label>
+<input type="checkbox" id="chkbx_overview">
+<label for="chkbx_overview"><span>About Estelle</span></label>
 <article>
   <header>
     <h1>Who, what, and why!</h1>
@@ -123,26 +123,24 @@ footer {
 <article>
 <header><h1>The actual &lt;style&gt;</h1></header>
   <figure>
-<style class="editme" contenteditable="">/* all / previous slide */
-
+<style class="editme" contenteditable="">/* all the slides */
 article {
   transform: translate(100%, 0) scale(0.1) rotate(180deg);
 }
 
-
 /* current slide */
-
 input:checked + label + article {
   transform: none;
 }
 
-/* create the back button out of a label */
+/* create the back button out of label */
 input:checked + label::after {
   content: '« back';
   position:absolute; 
   bottom: 20px; left: 20px;
   cursor: pointer;
 }
+/* clicking unchecks current slide */
 
 /* create the next button out of a checkbox */
 input:checked + 
@@ -167,6 +165,8 @@ input:checked +
 #slides:has(:checked) > h1 {
   display: none;
 }
+
+/* unchecked state */
 
 /* show all the inputs in a group */
 input + label::after {
@@ -210,6 +210,7 @@ article {
         <li>OpenWebDocs: <a href="https://openwebdocs.org/">OpenWebDocs.org</a></li>
         <li>Selectors: <a href="https://estelle.github.io/selectors/">estelle.github.io/selectors/</a></li>
         <li>Specificity: <a href="https://specifishity.com">SpeciFISHity.com</a></li>
+        <li>Original presentation: DotCSS 2011</li>
       </ul>
     </div>
   </figure>

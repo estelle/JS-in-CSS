@@ -128,53 +128,53 @@ Copyright: 2025,  CC-SA-NC-BY - Creative Commons Attribution-NonCommercial-Share
   </header>
   <figure style="overflow: scroll;">
 <style class="editme" contenteditable="">
-#slides,
+
+/* by default, all the slides... */
 article {
   position: absolute; top: 0; left: 0;
   width:100vw; height: 100vh;
   transition: none;
-}
-/* all but current slide */
-article:not(:target) {
   transform: translate(100%, 0) scale(0.1) rotate(180deg);
 }
 
-/* page load or current target */
+/* when page loads with no target */
 :not(:has(article:target)) article:first-of-type,
+/* or current target slides */
 body article:target {
   transform: translate(0, 0) scale(1) rotate(0deg);
   }
 
-/* next */
+/* upcoming slide hangs on corner */
 :not(:has(article:target)) article:first-of-type + a + .article,
 body article:target + a + article{
      transform: translate(45%, -50%) scale(0.2) rotate(-90deg);
   }
 
-/* link after all articles */
+/* link that comes after each article */
 article ~ a::before {
   content: '<< back';
   position:absolute; bottom: 20px; left: 20px;
-  cursor: pointer;
-  z-index: 5000;
+  z-index: 5;
+  background-color: white;;
 
 }
-/* except the current one */
+/* except the current article's link */
 article:target ~ a::before {
   display: none;
 }
 
-/* hide text and all links */
+/* hide the text of all the links and target's link */
 #slides > a span,
-article:target ~ a {display: none;}
+article:target + a {
+  position: absolute;
+  bottom: 115vh;
+}
 
 /* make the first slide's next visible if no target */
 article:nth-of-type(2) + a,
 /* make just one "next" visible */
 body article:target + a + article + a {
-  display: block;
   position:absolute; bottom: 20px; right: 20px;
-  cursor: pointer;
   &::before {
     display: none;
   }
@@ -184,13 +184,8 @@ body article:target + a + article + a {
     color: var(--bgColor);
     border-radius: 4px;
     background-color: var(--hiliteColor);
-    box-shadow: var(--globalShadow);
   }
 }
-
-
-
-
 </style>
   </figure>
 </article>

@@ -7,10 +7,10 @@
 </head>
 <body>
 <dl contenteditable>
-<dt>/* previous / all */</dt><dd><span>article {</span>
+<dt>/* all the slides</S>*/</dt><dd><span>article {</span>
   transform: translate(100%, 0) scale(0.1) rotate(180deg);
   transition: all 0.25s ease-in; 
-<span>}</span></dd><dt>/* current */</dt><dd><span>input:checked + label + article {</span>
+<span>}</span></dd><dt>/* just the current slide */</dt><dd><span>input:checked + label + article {</span>
   transform: translate(0, 0) scale(1) rotate(0deg);  
 <span>}</span></dd><dt>/* back button */</dt><dd><span>input:checked + label::after {</span>
   content: '« back';
@@ -19,7 +19,7 @@
   left: 20px;
   transform: translatez(0);
   cursor: pointer; 
-<span>}</span></dd><dt>/* next button */</dt><dd><span>input:checked + label + article+ input:not(:checked) {</span>
+<span>}</span></dd><dt>/* next button */</dt><dd><span>input:checked + label + article + input:not(:checked) {</span>
   position: absolute;
   bottom: 20px;
   right: 20px;
@@ -27,7 +27,7 @@
   appearance: none;
   font-size: 1rem;
 <span>}
-input:checked + label + article+ input:not(:checked)::after {</span>
+input:checked + label + article + input:not(:checked)::after {</span>
   content: 'next »';
   padding: 0 8px 4px;
   color: var(--white);
